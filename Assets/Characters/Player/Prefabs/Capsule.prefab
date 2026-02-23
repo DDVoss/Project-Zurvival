@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 1566407192516439334}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,7 +144,7 @@ Transform:
   m_GameObject: {fileID: 8785983798607938619}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.91, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -270,11 +270,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   _characterController: {fileID: 138223080761146653}
   _playerCamera: {fileID: 0}
-  runAcceleration: 80
-  runSpeed: 5
-  drag: 30
+  runAcceleration: 60
+  runSpeed: 3
+  drag: 50
   gravityValue: -9.81
-  rotationSpeed: 1000
+  rotationSpeed: 5
+  directionChangeDelay: 0.3
+  turningDegrees: 90
 --- !u!114 &3724850328772838741
 MonoBehaviour:
   m_ObjectHideFlags: 0
