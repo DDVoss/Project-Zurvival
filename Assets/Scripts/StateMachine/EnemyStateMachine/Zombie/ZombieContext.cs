@@ -5,7 +5,7 @@ public class ZombieContext
 { 
     private float _chaseRange;
     private float _attackRange;
-    public float _chaseSpeed;
+    private float _chaseSpeed;
     
     private NavMeshAgent _agent;
     private Transform _target;

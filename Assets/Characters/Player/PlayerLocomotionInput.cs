@@ -7,7 +7,8 @@ public class PlayerLocomotionInput : MonoBehaviour, PlayerControls.IPlayerLocomo
 {
         public PlayerControls PlayerControls { get; private set; }
         public Vector2 MovementInput { get; private set; }
-        public Vector2 LookInput { get; private set; }
+        public bool AimInput { get; private set; }
+        public bool AttackInput { get; private set; }
 
         private void OnEnable()
         {
@@ -28,9 +29,13 @@ public class PlayerLocomotionInput : MonoBehaviour, PlayerControls.IPlayerLocomo
         {
                 MovementInput = context.ReadValue<Vector2>();
         }
-        
-        public void OnLook(InputAction.CallbackContext context)
+
+        public void OnAim(InputAction.CallbackContext context)
         {
-                LookInput = context.ReadValue<Vector2>();
+                AimInput = context.ReadValueAsButton();
+        }
+        public void OnAttack(InputAction.CallbackContext context)
+        {
+                AttackInput = context.ReadValueAsButton();
         }
 }
