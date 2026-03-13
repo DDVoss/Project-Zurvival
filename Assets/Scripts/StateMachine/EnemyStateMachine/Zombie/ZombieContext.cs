@@ -2,30 +2,27 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class ZombieContext
-{ 
-    private float _chaseRange;
-    private float _attackRange;
-    private float _chaseSpeed;
+{
+    public bool IsHit { get; set; }
+    public float Health { get; set; }
+    public float ChaseRange { get; }
+    public float AttackRange { get; }
+    public float ChaseSpeed { get; }
     
-    private NavMeshAgent _agent;
-    private Transform _target;
+    public NavMeshAgent Agent { get; }
+    public Transform Target { get; }
+   
     
     
-    public ZombieContext(float chaseRange, float attackRange, float chaseSpeed, NavMeshAgent agent, Transform target)
+    public ZombieContext(float health, float chaseRange, float attackRange, float chaseSpeed, NavMeshAgent agent, Transform target)
     {
-        _chaseRange = chaseRange;
-        _attackRange = attackRange;
-        _chaseSpeed = chaseSpeed;
+        Health = health;
+        ChaseRange = chaseRange;
+        AttackRange = attackRange;
+        ChaseSpeed = chaseSpeed;
         
-        _agent = agent;
-        _target = target;
+        Agent = agent;
+        Target = target;
         
     }
-    
-    // readonly properties
-    public float ChaseRange => _chaseRange;
-    public float AttackRange => _attackRange;
-    public float ChaseSpeed => _chaseSpeed;
-    public NavMeshAgent Agent => _agent;
-    public Transform Target => _target;
 }

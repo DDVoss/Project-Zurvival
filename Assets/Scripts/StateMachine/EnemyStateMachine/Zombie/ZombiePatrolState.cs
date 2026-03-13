@@ -18,6 +18,12 @@ public class ZombiePatrolState : ZombieState
 
     public override ZombieStateMachine.EZombieState GetNextState()
     {
+        if (Context.IsHit)
+        {
+            Context.IsHit = false;
+            return ZombieStateMachine.EZombieState.Hit;
+        }
+        
         float distanceToTarget = Vector3.Distance(Context.Agent.transform.position, Context.Target.position);
         if (distanceToTarget <= Context.ChaseRange)
         {            

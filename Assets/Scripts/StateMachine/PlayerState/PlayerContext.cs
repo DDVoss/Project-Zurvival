@@ -7,6 +7,7 @@ public class PlayerContext
     public CharacterController CharacterController { get; }
     public Camera PlayerCamera { get; }
     public PlayerLocomotionInput PlayerLocomotionInput { get; }
+    public Transform MuzzlePointTransform { get; } 
 
     // Config (readonly)
     public float RunAcceleration { get; }
@@ -28,6 +29,7 @@ public class PlayerContext
         CharacterController characterController,
         Camera playerCamera,
         PlayerLocomotionInput playerLocomotionInput,
+        Transform muzzlePointTransform,
         float runAcceleration,
         float runSpeed,
         float drag,
@@ -40,6 +42,7 @@ public class PlayerContext
         CharacterController = characterController;
         PlayerCamera = playerCamera;
         PlayerLocomotionInput = playerLocomotionInput;
+        MuzzlePointTransform = muzzlePointTransform;
         RunAcceleration = runAcceleration;
         RunSpeed = runSpeed;
         Drag = drag;

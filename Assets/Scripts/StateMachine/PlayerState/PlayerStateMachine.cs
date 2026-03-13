@@ -18,6 +18,7 @@ public class PlayerStateMachine : StateManager<PlayerStateMachine.EPlayerState>
     [SerializeField] private CharacterController _characterController;
     [SerializeField] private Camera _playerCamera;
     private PlayerLocomotionInput _playerLocomotionInput;
+    [SerializeField] private Transform _muzzlePointTransform; // Assign this in the inspector to the point where bullets should spawn
    
    
     [Header("Base Movement Settings")]
@@ -46,6 +47,7 @@ public class PlayerStateMachine : StateManager<PlayerStateMachine.EPlayerState>
             _characterController,
             _playerCamera,
             _playerLocomotionInput,
+            _muzzlePointTransform,
             runAcceleration,
             runSpeed,
             drag,
@@ -61,6 +63,7 @@ public class PlayerStateMachine : StateManager<PlayerStateMachine.EPlayerState>
     {
         Assert.IsNotNull(_characterController, "CharacterController is not assigned in the inspector.");
         Assert.IsNotNull(_playerCamera, "Player Camera is not assigned in the inspector.");
+        Assert.IsNotNull(_muzzlePointTransform, "Muzzle Point Transform is not assigned in the inspector.");
         Assert.Greater(runAcceleration, 0f, "runAcceleration must be greater than 0.");
         Assert.Greater(runSpeed, 0f, "runSpeed must be greater than 0.");
         Assert.Greater(drag, 0f, "drag must be greater than 0.");
