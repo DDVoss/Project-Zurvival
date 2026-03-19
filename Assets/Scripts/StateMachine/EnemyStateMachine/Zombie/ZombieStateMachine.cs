@@ -29,7 +29,7 @@ public class ZombieStateMachine : StateManager<ZombieStateMachine.EZombieState>
     private void Awake()
     {
         ValidateVariables();
-        _context = new ZombieContext(health, chaseRange, attackRange, chaseSpeed, agent, target);
+        _context = new ZombieContext(chaseRange, attackRange, chaseSpeed, agent, target);
         _zombieHealth = GetComponent<ZombieHealth>();
         _zombieHealth.Initialize(_context);
         InitializeStates();
@@ -48,10 +48,13 @@ public class ZombieStateMachine : StateManager<ZombieStateMachine.EZombieState>
 
     private void InitializeStates()
     {
+        // Populate the dictionary with enum-to-state mappings
         States.Add(EZombieState.Patrol, new ZombiePatrolState(_context, EZombieState.Patrol));
         States.Add(EZombieState.Chase, new ZombieChaseState(_context, EZombieState.Chase));
         States.Add(EZombieState.Attack, new ZombieAttackState(_context, EZombieState.Attack));
         States.Add(EZombieState.Hit, new ZombieHitState(_context, EZombieState.Hit));
+        
+        // Start in the Patrol state
         CurrentState = States[EZombieState.Patrol];
     }
 

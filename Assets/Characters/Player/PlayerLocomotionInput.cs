@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[DefaultExecutionOrder(-2)]
+[DefaultExecutionOrder(-2)] // Ensure this script runs before other scripts that might depend on input data
 public class PlayerLocomotionInput : MonoBehaviour, PlayerControls.IPlayerLocomotionMapActions
 {
         public PlayerControls PlayerControls { get; private set; }
@@ -12,17 +12,18 @@ public class PlayerLocomotionInput : MonoBehaviour, PlayerControls.IPlayerLocomo
 
         private void OnEnable()
         {
-                PlayerControls = new PlayerControls();
-                PlayerControls.Enable();
+                PlayerControls = new PlayerControls(); // Create input system instance
+                PlayerControls.Enable(); // Enable all action maps
                 
-                PlayerControls.PlayerLocomotionMap.Enable();
-                PlayerControls.PlayerLocomotionMap.SetCallbacks(this);
+                PlayerControls.PlayerLocomotionMap.Enable(); // Enable specific map
+                PlayerControls.PlayerLocomotionMap.SetCallbacks(this); // Register THIS script as the callback receiver
+                // Whenever something happens in PlayerLocomotionMap, call my methods (OnMovement, OnAim, etc.)
         }
 
         private void OnDisable()
         {
                 PlayerControls.PlayerLocomotionMap.Disable();
-                PlayerControls.PlayerLocomotionMap.RemoveCallbacks(this);
+                PlayerControls.PlayerLocomotionMap.RemoveCallbacks(this); // Clean up callbacks
         }
 
         public void OnMovement(InputAction.CallbackContext context)

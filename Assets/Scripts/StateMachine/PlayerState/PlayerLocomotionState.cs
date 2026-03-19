@@ -58,6 +58,7 @@ public class PlayerLocomotionState : PlayerState
 
     public override PlayerStateMachine.EPlayerState GetNextState()
     {
+        // When player presses aim, transition to aiming state
         if (Context.PlayerLocomotionInput.AimInput)
         {
             return PlayerStateMachine.EPlayerState.Aiming;

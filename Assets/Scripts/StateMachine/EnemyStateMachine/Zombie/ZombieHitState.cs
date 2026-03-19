@@ -38,9 +38,4 @@ public class ZombieHitState : ZombieState
     public override void OnTriggerStay(Collider other) { }
 
     public override void OnTriggerExit(Collider other) { }
-
-    public void ReceiveDamage(float amount)
-    {
-        Context.Health -= amount;
-    }
 }

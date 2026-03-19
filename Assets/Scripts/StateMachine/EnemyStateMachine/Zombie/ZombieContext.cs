@@ -4,7 +4,6 @@ using UnityEngine.AI;
 public class ZombieContext
 {
     public bool IsHit { get; set; }
-    public float Health { get; set; }
     public float ChaseRange { get; }
     public float AttackRange { get; }
     public float ChaseSpeed { get; }
@@ -14,9 +13,8 @@ public class ZombieContext
    
     
     
-    public ZombieContext(float health, float chaseRange, float attackRange, float chaseSpeed, NavMeshAgent agent, Transform target)
+    public ZombieContext(float chaseRange, float attackRange, float chaseSpeed, NavMeshAgent agent, Transform target)
     {
-        Health = health;
         ChaseRange = chaseRange;
         AttackRange = attackRange;
         ChaseSpeed = chaseSpeed;
