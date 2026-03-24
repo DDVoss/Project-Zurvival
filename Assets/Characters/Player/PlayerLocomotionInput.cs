@@ -6,8 +6,8 @@ using UnityEngine.InputSystem;
 public class PlayerLocomotionInput : MonoBehaviour, PlayerControls.IPlayerLocomotionMapActions
 {
         public PlayerControls PlayerControls { get; private set; }
-        public Vector2 MovementInput { get; private set; }
-        public bool AimInput { get; private set; }
+        public Vector2 MovementInput { get; private set; } // handle WASD or left stick input as a Vector2. Handle float values for smooth movement instead of just on/off. X = horizontal input, Y = vertical input.
+        public bool AimInput { get; private set; } // true or false based on whether the button is pressed or not
         public bool AttackInput { get; private set; }
 
         private void OnEnable()

@@ -26,7 +26,6 @@ public class PlayerAttackState : PlayerState
         // Assuming the muzzle flash is a child of the MuzzlePointTransform
         // Hardcoding the muzzle flash retrieval for now
         muzzleFlash = Context.MuzzlePointTransform.GetComponentInChildren<ParticleSystem>();
-        
     }
 
     public override void ExitState()
@@ -86,6 +85,7 @@ public class PlayerAttackState : PlayerState
     public void Shoot()
     {
         muzzleFlash.Play();
+ 
         RaycastHit hit;
         if ( Physics.Raycast(Context.MuzzlePointTransform.position, Context.MuzzlePointTransform.forward, out hit, range))
         {

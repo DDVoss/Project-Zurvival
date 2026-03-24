@@ -31,7 +31,9 @@ public class CameraTriggerVolume : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if (CameraSwitcher.ActiveCamera != cam) CameraSwitcher.SwitchCamera(cam);
+            // Switch to the camera when the player enters the collider.
+            // Check if the camera is already active before switching to avoid unnecessary calls
+            if (!CameraSwitcher.IsActive(cam)) CameraSwitcher.SwitchCamera(cam);
         }
     }
 }

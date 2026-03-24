@@ -30,6 +30,8 @@ public class PlayerState : BaseState<PlayerStateMachine.EPlayerState>
     public void ApplyGravity()
     {
         Context.GroundedPlayer = Context.CharacterController.isGrounded;
+        
+        // If grounded and falling, reset vertical velocity to a small negative value to keep the player grounded
         if (Context.GroundedPlayer && Context.PlayerVelocity.y < -2f)
         {
             Context.SetVelocityY(-2f);

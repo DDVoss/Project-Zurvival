@@ -58,6 +58,7 @@ public class ZombieStateMachine : StateManager<ZombieStateMachine.EZombieState>
         CurrentState = States[EZombieState.Patrol];
     }
 
+    // Visualize the chase and attack ranges in the editor
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
